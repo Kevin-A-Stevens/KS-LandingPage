@@ -1,5 +1,4 @@
-Landing Page Project
-Table of Contents
+Landing Page Project:
 
 Project Title: Landing Page project for Udacity Web Development program.
 
