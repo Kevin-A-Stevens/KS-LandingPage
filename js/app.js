@@ -56,12 +56,34 @@ document.querySelectorAll('a').forEach(an => {
         while (activeClass.length) {
             activeClass[0].classList.remove('current');
         } // End While loop
+
         this.className = 'current';
 
         // Scroll to anchor ID using scrollTO event
 
         document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
+            behavior: 'smooth',
+            block: "start"
+            // if (sections.getBoundingClientRect().top < 1 && sec.getBoundingClientRect().top > 0) {
+            //   sections.className = "myNewClass";
+            // }
         }); // End scrollIntoView
+
+
     }); // End event function
+
 }); // End forEach loop
+
+// Activate the active section and shading the entire section that is currently active.
+
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section');
+    for (const section of sections) {
+        const asection = section.getBoundingClientRect();
+        if (asection.top <= 150 && asection.bottom >= 150) {
+            section.classList.add('active-section');
+        } else {
+            section.classList.remove('active-section');
+        } // End If
+    } // End for loop
+}); // End EventListener
